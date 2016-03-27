@@ -1,4 +1,6 @@
-public interface List<T> implements Iterable { 
+import java.util.Iterator;
+
+public interface List<T> extends Iterable { 
 
     public boolean add( T x ); 
 
@@ -10,5 +12,7 @@ public interface List<T> implements Iterable {
 
     public T set( int i, T x ); 
 
-    public int size(); 
+    public int size();
+
+    Iterator<T> iterator();
 }

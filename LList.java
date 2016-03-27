@@ -1,22 +1,35 @@
-public class LList<T> implements List<T> {
+import java.util.Iterator;
 
+public class LList<T> implements List<T> {
+    
     private class MyIterator implements Iterator<T> {
 	private DLLNode<T> _curr;
+	private boolean _nextCalled;
 
-	public MyIterator() {
-	    
+	public MyIterator(DLLNode<T> value) {
+	    _nextCalled = false;
+	    _curr = value;
 	}
 
 	public boolean hasNext() {
-
+	    return !(_curr==null);
 	}
 
 	public T next() {
-
+	    T ret = _curr.getCargo();
+	    _curr = _curr.getNext();
+	    _nextCalled = true;
+	    return ret;
 	}
 
 	public void remove() {
-
+	    if (_nextCalled) {
+		DLLNode<T> l = _curr.getPrev().getPrev();
+		if (l!=null)
+		    l.setNext(_curr);
+		_curr.setPrev(l);
+	    }
+	    _nextCalled = false;
 	}
     }
     
@@ -223,6 +236,10 @@ public class LList<T> implements List<T> {
     }
 
 
+    public Iterator<T> iterator() {
+	return new MyIterator(_head);
+    }
+    
   //main method for testing
     public static void main( String[] args ) {
       List<String> test = new LList<String>();
