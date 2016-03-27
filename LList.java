@@ -1,5 +1,25 @@
 public class LList<T> implements List<T> {
 
+    private class MyIterator implements Iterator<T> {
+	private DLLNode<T> _curr;
+
+	public MyIterator() {
+	    
+	}
+
+	public boolean hasNext() {
+
+	}
+
+	public T next() {
+
+	}
+
+	public void remove() {
+
+	}
+    }
+    
     //instance vars
     private  DLLNode<T>  _head, _tail; //pointers to first and last nodes
     private int _size;
