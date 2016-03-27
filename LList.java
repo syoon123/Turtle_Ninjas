@@ -1,3 +1,8 @@
+// TurtleNinjas - Sarah Yoon,Sungbin Kim
+// APCS2 pd10
+// HW18 - For Each Is the Goal
+// 2016-03-27
+
 import java.util.Iterator;
 
 public class LList<T> implements List<T> {
@@ -12,7 +17,7 @@ public class LList<T> implements List<T> {
 	}
 
 	public boolean hasNext() {
-	    return !(_curr==null);
+	    return _curr!=null; //checks if next node exists
 	}
 
 	public T next() {
