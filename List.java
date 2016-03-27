@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public interface List<T> extends Iterable { 
+public interface List<T> extends Iterable<T> { 
 
     public boolean add( T x ); 
 
