@@ -1,4 +1,4 @@
-public interface List<T>{ 
+public interface List<T> implements Iterable { 
 
     public boolean add( T x ); 
 
